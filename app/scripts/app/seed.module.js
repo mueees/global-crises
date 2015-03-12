@@ -9,7 +9,9 @@ var seed = seed || {};
         'angular-growl',
 
         //pages
-        'seed.promo'
+        'seed.promo',
+        'seed.disaster',
+        'seed.disasters'
     ];
     angular.module('seed', inject);
 

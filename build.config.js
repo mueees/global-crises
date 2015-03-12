@@ -82,7 +82,7 @@ module.exports = {
             'app/vendor/angular-growl/build/angular-growl.js',
             'app/vendor/angular-mocks/angular-mocks.js',
             'app/vendor/angular-sanitize/angular-sanitize.js',
-            'app/vendor/angular-touch/angular-touch.min.js',
+            'app/vendor/angular-touch/angular-touch.js',
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             'app/vendor/angular-animate/angular-animate.min.js',
             'app/vendor/angular-busy/dist/angular-busy.min.js',

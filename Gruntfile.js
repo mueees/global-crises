@@ -299,13 +299,19 @@ module.exports = function ( grunt ) {
             }
         },
         watch: {
-            jssrc: {
+            appjs: {
                 files: [
                     '<%= app_files.js.app %>'
                 ],
                 tasks: [ 'jshint:src', 'copy:app_js' ]
             },
-            corejssrc: {
+            pagesjs: {
+                files: [
+                    '<%= app_files.js.pages %>'
+                ],
+                tasks: [ 'jshint:src', 'copy:app_js' ]
+            },
+            corejs: {
                 files: [
                     '<%= app_files.js.core %>'
                 ],

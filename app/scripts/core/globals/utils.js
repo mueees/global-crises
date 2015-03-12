@@ -113,49 +113,49 @@ var _TIMESTAMP_ = new Date().getTime();
      * @param value milliseconds
      */
     seed.util.isLessMinute = function (value) {
-        return (value/1000 < 60) ? true: false;
+        return (value / 1000 < 60) ? true : false;
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.isLessHours = function (value) {
-        return (value/1000/60 < 60) ? true: false;
+        return (value / 1000 / 60 < 60) ? true : false;
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.isLessDay = function (value) {
-        return (value/1000/60/24 < 24) ? true: false;
+        return (value / 1000 / 60 / 24 < 24) ? true : false;
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.getSeconds = function (value) {
-        return Math.floor(value/1000);
+        return Math.floor(value / 1000);
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.getMinutes = function (value) {
-        return Math.floor(value/1000/60);
+        return Math.floor(value / 1000 / 60);
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.getHours = function (value) {
-        return Math.floor(value/1000/60/60);
+        return Math.floor(value / 1000 / 60 / 60);
     };
 
     /**
      * @param value milliseconds
      */
     seed.util.getDays = function (value) {
-        return Math.floor(value/1000/60/60/24);
+        return Math.floor(value / 1000 / 60 / 60 / 24);
     };
 
     var urlRegEx;
@@ -185,10 +185,10 @@ var _TIMESTAMP_ = new Date().getTime();
      * @param {?*=} optContext
      * @returns {Function}
      */
-    seed.util.wrapFunction = function(wrapFn, withFn, optContext) {
+    seed.util.wrapFunction = function (wrapFn, withFn, optContext) {
         seed.assert.assertFunction(wrapFn);
         seed.assert.assertFunction(withFn);
-        return function() {
+        return function () {
             //ar args = Array.prototype.slice.call(arguments, 0);
             wrapFn.apply(optContext, arguments);
             return withFn.apply(optContext, arguments);
@@ -205,7 +205,9 @@ var _TIMESTAMP_ = new Date().getTime();
         if (protoProps && _.has(protoProps, 'constructor')) {
             child = protoProps.constructor;
         } else {
-            child = function(){ return parent.apply(this, arguments); };
+            child = function () {
+                return parent.apply(this, arguments);
+            };
         }
 
         // Add static properties to the constructor function, if supplied.
@@ -213,7 +215,9 @@ var _TIMESTAMP_ = new Date().getTime();
 
         // Set the prototype chain to inherit from `parent`, without calling
         // `parent`'s constructor function.
-        var Surrogate = function(){ this.constructor = child; };
+        var Surrogate = function () {
+            this.constructor = child;
+        };
         Surrogate.prototype = parent.prototype;
         child.prototype = new Surrogate;
 

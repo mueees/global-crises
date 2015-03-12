@@ -5,9 +5,8 @@
         $stateProvider
             .state('main.disaster', {
                 url: '/disaster',
-                templateUrl: 'app/scripts/pages/disaster/promo.view.html',
-                controller: 'DisasterController',
-                abstract: true
+                templateUrl: 'app/scripts/pages/disaster/disaster.view.html',
+                controller: 'DisasterController'
             });
     });
 

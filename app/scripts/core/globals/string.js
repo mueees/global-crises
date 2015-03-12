@@ -48,7 +48,7 @@ var seed = seed || {};
      * @param {string} prefix A string to look for at the start of {@code str}.
      * @return {boolean} True if {@code str} begins with {@code prefix}.
      */
-    goog.string.startsWith = function(str, prefix) {
+    goog.string.startsWith = function (str, prefix) {
         return str.lastIndexOf(prefix, 0) === 0;
     };
 
@@ -59,7 +59,7 @@ var seed = seed || {};
      * @param {string} suffix A string to look for at the end of {@code str}.
      * @return {boolean} True if {@code str} ends with {@code suffix}.
      */
-    goog.string.endsWith = function(str, suffix) {
+    goog.string.endsWith = function (str, suffix) {
         var l = str.length - suffix.length;
         return l >= 0 && str.indexOf(suffix, l) === l;
     };
@@ -72,7 +72,7 @@ var seed = seed || {};
      * @return {boolean} True if {@code str} begins with {@code prefix} (ignoring
      *     case).
      */
-    goog.string.caseInsensitiveStartsWith = function(str, prefix) {
+    goog.string.caseInsensitiveStartsWith = function (str, prefix) {
         return goog.string.caseInsensitiveCompare(
                 prefix, str.substr(0, prefix.length)) === 0;
     };
@@ -85,7 +85,7 @@ var seed = seed || {};
      * @return {boolean} True if {@code str} ends with {@code suffix} (ignoring
      *     case).
      */
-    goog.string.caseInsensitiveEndsWith = function(str, suffix) {
+    goog.string.caseInsensitiveEndsWith = function (str, suffix) {
         return goog.string.caseInsensitiveCompare(
                 suffix, str.substr(str.length - suffix.length, suffix.length)) === 0;
     };
@@ -98,7 +98,7 @@ var seed = seed || {};
      * @return {boolean} True if {@code str1} and {@code str2} are the same string,
      *     ignoring case.
      */
-    goog.string.caseInsensitiveEquals = function(str1, str2) {
+    goog.string.caseInsensitiveEquals = function (str1, str2) {
         return str1.toLowerCase() == str2.toLowerCase();
     };
 
@@ -111,7 +111,7 @@ var seed = seed || {};
      * @return {string} A copy of {@code str} in which each occurrence of
      *     {@code %s} has been replaced an argument from {@code var_args}.
      */
-    goog.string.subs = function(str, var_args) {
+    goog.string.subs = function (str, var_args) {
         var splitParts = str.split('%s');
         var returnString = '';
 
@@ -133,7 +133,7 @@ var seed = seed || {};
      * @param {string} str Input string.
      * @return {string} A copy of {@code str} with collapsed whitespace.
      */
-    goog.string.collapseWhitespace = function(str) {
+    goog.string.collapseWhitespace = function (str) {
         // Since IE doesn't include non-breaking-space (0xa0) in their \s character
         // class (as required by section 7.2 of the ECMAScript spec), we explicitly
         // include it in the regexp to enforce consistent cross-browser behavior.
@@ -146,7 +146,7 @@ var seed = seed || {};
      * @param {string} str The string to check.
      * @return {boolean} True if {@code str} is empty or whitespace only.
      */
-    goog.string.isEmpty = function(str) {
+    goog.string.isEmpty = function (str) {
         // testing length == 0 first is actually slower in all browsers (about the
         // same in Opera).
         // Since IE doesn't include non-breaking-space (0xa0) in their \s character
@@ -162,7 +162,7 @@ var seed = seed || {};
      * @return {boolean} True if{@code str} is null, undefined, empty, or
      *     whitespace only.
      */
-    goog.string.isEmptySafe = function(str) {
+    goog.string.isEmptySafe = function (str) {
         return goog.string.isEmpty(goog.string.makeSafe(str));
     };
 
@@ -172,7 +172,7 @@ var seed = seed || {};
      * @param {string} str The string to check.
      * @return {boolean} Whether the string is all breaking whitespace.
      */
-    goog.string.isBreakingWhitespace = function(str) {
+    goog.string.isBreakingWhitespace = function (str) {
         return !/[^\t\n\r ]/.test(str);
     };
 
@@ -182,7 +182,7 @@ var seed = seed || {};
      * @param {string} str string to check.
      * @return {boolean} True if {@code str} consists entirely of letters.
      */
-    goog.string.isAlpha = function(str) {
+    goog.string.isAlpha = function (str) {
         return !/[^a-zA-Z]/.test(str);
     };
 
@@ -193,7 +193,7 @@ var seed = seed || {};
      *     casted to one.
      * @return {boolean} True if {@code str} is numeric.
      */
-    goog.string.isNumeric = function(str) {
+    goog.string.isNumeric = function (str) {
         return !/[^0-9]/.test(str);
     };
 
@@ -203,7 +203,7 @@ var seed = seed || {};
      * @param {string} str string to check.
      * @return {boolean} True if {@code str} is alphanumeric.
      */
-    goog.string.isAlphaNumeric = function(str) {
+    goog.string.isAlphaNumeric = function (str) {
         return !/[^a-zA-Z0-9]/.test(str);
     };
 
@@ -213,7 +213,7 @@ var seed = seed || {};
      * @param {string} ch Character to check.
      * @return {boolean} True if {code ch} is a space.
      */
-    goog.string.isSpace = function(ch) {
+    goog.string.isSpace = function (ch) {
         return ch == ' ';
     };
 
@@ -223,7 +223,7 @@ var seed = seed || {};
      * @param {string} ch Character to check.
      * @return {boolean} True if {code ch} is a valid unicode character.
      */
-    goog.string.isUnicodeChar = function(ch) {
+    goog.string.isUnicodeChar = function (ch) {
         return ch.length == 1 && ch >= ' ' && ch <= '~' ||
             ch >= '\u0080' && ch <= '\uFFFD';
     };
@@ -235,7 +235,7 @@ var seed = seed || {};
      * @param {string} str The string from which to strip newlines.
      * @return {string} A copy of {@code str} stripped of newlines.
      */
-    goog.string.stripNewlines = function(str) {
+    goog.string.stripNewlines = function (str) {
         return str.replace(/(\r\n|\r|\n)+/g, ' ');
     };
 
@@ -245,7 +245,7 @@ var seed = seed || {};
      * @param {string} str The string to in which to canonicalize newlines.
      * @return {string} {@code str} A copy of {@code} with canonicalized newlines.
      */
-    goog.string.canonicalizeNewlines = function(str) {
+    goog.string.canonicalizeNewlines = function (str) {
         return str.replace(/(\r\n|\r|\n)/g, '\n');
     };
 
@@ -256,7 +256,7 @@ var seed = seed || {};
      * @param {string} str The string in which to normalize whitespace.
      * @return {string} A copy of {@code str} with all whitespace normalized.
      */
-    goog.string.normalizeWhitespace = function(str) {
+    goog.string.normalizeWhitespace = function (str) {
         return str.replace(/\xa0|\s/g, ' ');
     };
 
@@ -268,7 +268,7 @@ var seed = seed || {};
      * @return {string} A copy of {@code str} with all consecutive spaces and tabs
      *    replaced with a single space.
      */
-    goog.string.normalizeSpaces = function(str) {
+    goog.string.normalizeSpaces = function (str) {
         return str.replace(/\xa0|[ \t]+/g, ' ');
     };
 
@@ -280,7 +280,7 @@ var seed = seed || {};
      * @param {string} str A string in which to collapse spaces.
      * @return {string} Copy of the string with normalized breaking spaces.
      */
-    goog.string.collapseBreakingSpaces = function(str) {
+    goog.string.collapseBreakingSpaces = function (str) {
         return str.replace(/[\t\r\n ]+/g, ' ').replace(
             /^[\t\r\n ]+|[\t\r\n ]+$/g, '');
     };
@@ -291,7 +291,7 @@ var seed = seed || {};
      * @param {string} str The string to trim.
      * @return {string} A trimmed copy of {@code str}.
      */
-    goog.string.trim = function(str) {
+    goog.string.trim = function (str) {
         // Since IE doesn't include non-breaking-space (0xa0) in their \s character
         // class (as required by section 7.2 of the ECMAScript spec), we explicitly
         // include it in the regexp to enforce consistent cross-browser behavior.
@@ -304,7 +304,7 @@ var seed = seed || {};
      * @param {string} str The string to left trim.
      * @return {string} A trimmed copy of {@code str}.
      */
-    goog.string.trimLeft = function(str) {
+    goog.string.trimLeft = function (str) {
         // Since IE doesn't include non-breaking-space (0xa0) in their \s character
         // class (as required by section 7.2 of the ECMAScript spec), we explicitly
         // include it in the regexp to enforce consistent cross-browser behavior.
@@ -317,7 +317,7 @@ var seed = seed || {};
      * @param {string} str The string to right trim.
      * @return {string} A trimmed copy of {@code str}.
      */
-    goog.string.trimRight = function(str) {
+    goog.string.trimRight = function (str) {
         // Since IE doesn't include non-breaking-space (0xa0) in their \s character
         // class (as required by section 7.2 of the ECMAScript spec), we explicitly
         // include it in the regexp to enforce consistent cross-browser behavior.
@@ -335,7 +335,7 @@ var seed = seed || {};
      * @param {string} str2 The string to compare {@code str1} to.
      * @return {number} The comparator result, as described above.
      */
-    goog.string.caseInsensitiveCompare = function(str1, str2) {
+    goog.string.caseInsensitiveCompare = function (str1, str2) {
         var test1 = String(str1).toLowerCase();
         var test2 = String(str2).toLowerCase();
 
@@ -374,7 +374,7 @@ var seed = seed || {};
      * @return {number} less than 0 if str1 < str2, 0 if str1 == str2, greater than
      *     0 if str1 > str2.
      */
-    goog.string.numerateCompare = function(str1, str2) {
+    goog.string.numerateCompare = function (str1, str2) {
         if (str1 == str2) {
             return 0;
         }
@@ -431,7 +431,7 @@ var seed = seed || {};
      *     Note that '#', ':', and other characters used to delimit portions
      *     of URLs *will* be encoded.
      */
-    goog.string.urlEncode = function(str) {
+    goog.string.urlEncode = function (str) {
         return encodeURIComponent(String(str));
     };
 
@@ -442,7 +442,7 @@ var seed = seed || {};
      * @param {string} str The string to url decode.
      * @return {string} The decoded {@code str}.
      */
-    goog.string.urlDecode = function(str) {
+    goog.string.urlDecode = function (str) {
         return decodeURIComponent(str.replace(/\+/g, ' '));
     };
 
@@ -453,7 +453,7 @@ var seed = seed || {};
      * @param {boolean=} opt_xml Whether to use XML compatible tags.
      * @return {string} A copy of {@code str} with converted newlines.
      */
-    goog.string.newLineToBr = function(str, opt_xml) {
+    goog.string.newLineToBr = function (str, opt_xml) {
         return str.replace(/(\r\n|\r|\n)/g, opt_xml ? '<br />' : '<br>');
     };
 
@@ -502,7 +502,7 @@ var seed = seed || {};
      *     characters to occur in your strings, such as if you are escaping HTML.
      * @return {string} An escaped copy of {@code str}.
      */
-    goog.string.htmlEscape = function(str, opt_isLikelyToContainHtmlChars) {
+    goog.string.htmlEscape = function (str, opt_isLikelyToContainHtmlChars) {
 
         if (opt_isLikelyToContainHtmlChars) {
             str = str.replace(goog.string.AMP_RE_, '&amp;')
@@ -622,7 +622,7 @@ var seed = seed || {};
      * @param {string} str The string to unescape.
      * @return {string} An unescaped copy of {@code str}.
      */
-    goog.string.unescapeEntities = function(str) {
+    goog.string.unescapeEntities = function (str) {
         if (goog.string.contains(str, '&')) {
             // We are careful not to use a DOM if we do not have one. We use the []
             // notation so that the JSCompiler will not complain about these objects and
@@ -645,7 +645,7 @@ var seed = seed || {};
      * @param {!Document} document A document to use in escaping the string.
      * @return {string} An unescaped copy of {@code str}.
      */
-    goog.string.unescapeEntitiesWithDocument = function(str, document) {
+    goog.string.unescapeEntitiesWithDocument = function (str, document) {
         if (goog.string.contains(str, '&')) {
             return goog.string.unescapeEntitiesUsingDom_(str, document);
         }
@@ -663,7 +663,7 @@ var seed = seed || {};
      *     will be used.
      * @return {string} The unescaped {@code str} string.
      */
-    goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
+    goog.string.unescapeEntitiesUsingDom_ = function (str, opt_document) {
         var seen = {'&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"'};
         var div;
         if (opt_document) {
@@ -676,7 +676,7 @@ var seed = seed || {};
         // trailing characters unchanged. Since the entity characters do not include
         // open angle bracket, there is no chance of XSS from the innerHTML use.
         // Since no whitespace is passed to innerHTML, whitespace is preserved.
-        return str.replace(goog.string.HTML_ENTITY_PATTERN_, function(s, entity) {
+        return str.replace(goog.string.HTML_ENTITY_PATTERN_, function (s, entity) {
             // Check for cached entity.
             var value = seen[s];
             if (value) {
@@ -711,8 +711,8 @@ var seed = seed || {};
      * @param {string} str The string to unescape.
      * @return {string} An unescaped copy of {@code str}.
      */
-    goog.string.unescapePureXmlEntities_ = function(str) {
-        return str.replace(/&([^;]+);/g, function(s, entity) {
+    goog.string.unescapePureXmlEntities_ = function (str) {
+        return str.replace(/&([^;]+);/g, function (s, entity) {
             switch (entity) {
                 case 'amp':
                     return '&';
@@ -753,7 +753,7 @@ var seed = seed || {};
      * @param {boolean=} opt_xml Whether to use XML compatible tags.
      * @return {string} An escaped copy of {@code str}.
      */
-    goog.string.whitespaceEscape = function(str, opt_xml) {
+    goog.string.whitespaceEscape = function (str, opt_xml) {
         // This doesn't use goog.string.preserveSpaces for backwards compatibility.
         return goog.string.newLineToBr(str.replace(/  /g, ' &#160;'), opt_xml);
     };
@@ -765,7 +765,7 @@ var seed = seed || {};
      * @param {string} str The string in which to preserve whitespace.
      * @return {string} A copy of {@code str} with preserved whitespace.
      */
-    goog.string.preserveSpaces = function(str) {
+    goog.string.preserveSpaces = function (str) {
         return str.replace(/(^|[\n ]) /g, '$1' + goog.string.Unicode.NBSP);
     };
 
@@ -785,7 +785,7 @@ var seed = seed || {};
      * @param {string} quoteChars The quote characters to strip.
      * @return {string} A copy of {@code str} without the quotes.
      */
-    goog.string.stripQuotes = function(str, quoteChars) {
+    goog.string.stripQuotes = function (str, quoteChars) {
         var length = quoteChars.length;
         for (var i = 0; i < length; i++) {
             var quoteChar = length == 1 ? quoteChars : quoteChars.charAt(i);
@@ -807,7 +807,7 @@ var seed = seed || {};
      *     characters from being cut off in the middle.
      * @return {string} The truncated {@code str} string.
      */
-    goog.string.truncate = function(str, chars, opt_protectEscapedCharacters) {
+    goog.string.truncate = function (str, chars, opt_protectEscapedCharacters) {
         if (opt_protectEscapedCharacters) {
             str = goog.string.unescapeEntities(str);
         }
@@ -836,8 +836,8 @@ var seed = seed || {};
      *     middle as possible.
      * @return {string} A truncated copy of {@code str}.
      */
-    goog.string.truncateMiddle = function(str, chars,
-                                          opt_protectEscapedCharacters, opt_trailingChars) {
+    goog.string.truncateMiddle = function (str, chars,
+                                           opt_protectEscapedCharacters, opt_trailingChars) {
         if (opt_protectEscapedCharacters) {
             str = goog.string.unescapeEntities(str);
         }
@@ -899,7 +899,7 @@ var seed = seed || {};
      * @param {string} s The string to quote.
      * @return {string} A copy of {@code s} surrounded by double quotes.
      */
-    goog.string.quote = function(s) {
+    goog.string.quote = function (s) {
         s = String(s);
         if (s.quote) {
             return s.quote();
@@ -922,7 +922,7 @@ var seed = seed || {};
      * @param {string} str The string to escape.
      * @return {string} An escaped string representing {@code str}.
      */
-    goog.string.escapeString = function(str) {
+    goog.string.escapeString = function (str) {
         var sb = [];
         for (var i = 0; i < str.length; i++) {
             sb[i] = goog.string.escapeChar(str.charAt(i));
@@ -937,7 +937,7 @@ var seed = seed || {};
      * @param {string} c The character to escape.
      * @return {string} An escaped string representing {@code c}.
      */
-    goog.string.escapeChar = function(c) {
+    goog.string.escapeChar = function (c) {
         if (c in goog.string.jsEscapeCache_) {
             return goog.string.jsEscapeCache_[c];
         }
@@ -982,7 +982,7 @@ var seed = seed || {};
      */
 // TODO(arv): It seems like we should have a generic goog.array.toMap. But do
 //            we want a dependency on goog.array in goog.string?
-    goog.string.toMap = function(s) {
+    goog.string.toMap = function (s) {
         var rv = {};
         for (var i = 0; i < s.length; i++) {
             rv[s.charAt(i)] = true;
@@ -997,7 +997,7 @@ var seed = seed || {};
      * @param {string} subString The substring to search for.
      * @return {boolean} Whether {@code str} contains {@code subString}.
      */
-    goog.string.contains = function(str, subString) {
+    goog.string.contains = function (str, subString) {
         return str.indexOf(subString) != -1;
     };
 
@@ -1008,7 +1008,7 @@ var seed = seed || {};
      * @param {string} subString The substring to search for.
      * @return {boolean} Whether {@code str} contains {@code subString}.
      */
-    goog.string.caseInsensitiveContains = function(str, subString) {
+    goog.string.caseInsensitiveContains = function (str, subString) {
         return goog.string.contains(str.toLowerCase(), subString.toLowerCase());
     };
 
@@ -1020,7 +1020,7 @@ var seed = seed || {};
      * @param {string} ss The string to look for.
      * @return {number} Number of occurrences of ss in s.
      */
-    goog.string.countOf = function(s, ss) {
+    goog.string.countOf = function (s, ss) {
         return s && ss ? s.split(ss).length - 1 : 0;
     };
 
@@ -1034,7 +1034,7 @@ var seed = seed || {};
      * @return {string} A copy of {@code s} with the substring removed or the full
      *     string if nothing is removed or the input is invalid.
      */
-    goog.string.removeAt = function(s, index, stringLength) {
+    goog.string.removeAt = function (s, index, stringLength) {
         var resultStr = s;
         // If the index is greater or equal to 0 then remove substring
         if (index >= 0 && index < s.length && stringLength > 0) {
@@ -1052,7 +1052,7 @@ var seed = seed || {};
      *  @return {string} A copy of {@code s} with {@code ss} removed or the full
      *      string if nothing is removed.
      */
-    goog.string.remove = function(s, ss) {
+    goog.string.remove = function (s, ss) {
         var re = new RegExp(goog.string.regExpEscape(ss), '');
         return s.replace(re, '');
     };
@@ -1065,7 +1065,7 @@ var seed = seed || {};
      *  @return {string} A copy of {@code s} with {@code ss} removed or the full
      *      string if nothing is removed.
      */
-    goog.string.removeAll = function(s, ss) {
+    goog.string.removeAll = function (s, ss) {
         var re = new RegExp(goog.string.regExpEscape(ss), 'g');
         return s.replace(re, '');
     };
@@ -1077,7 +1077,7 @@ var seed = seed || {};
      *     to one.
      * @return {string} A RegExp safe, escaped copy of {@code s}.
      */
-    goog.string.regExpEscape = function(s) {
+    goog.string.regExpEscape = function (s) {
         return String(s).replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1').
             replace(/\x08/g, '\\x08');
     };
@@ -1090,7 +1090,7 @@ var seed = seed || {};
      * @return {string} A string containing {@code length} repetitions of
      *     {@code string}.
      */
-    goog.string.repeat = function(string, length) {
+    goog.string.repeat = function (string, length) {
         return new Array(length + 1).join(string);
     };
 
@@ -1108,7 +1108,7 @@ var seed = seed || {};
      * @param {number=} opt_precision The desired precision.
      * @return {string} {@code num} as a string with the given options.
      */
-    goog.string.padNumber = function(num, length, opt_precision) {
+    goog.string.padNumber = function (num, length, opt_precision) {
         var s = goog.isDef(opt_precision) ? num.toFixed(opt_precision) : String(num);
         var index = s.indexOf('.');
         if (index == -1) {
@@ -1125,7 +1125,7 @@ var seed = seed || {};
      * @param {*} obj The object to convert.
      * @return {string} A string representation of the {@code obj}.
      */
-    goog.string.makeSafe = function(obj) {
+    goog.string.makeSafe = function (obj) {
         return obj === null ? '' : String(obj);
     };
 
@@ -1144,7 +1144,7 @@ var seed = seed || {};
      *     it will be casted to one.
      * @return {string} The concatenation of {@code var_args}.
      */
-    goog.string.buildString = function(var_args) {
+    goog.string.buildString = function (var_args) {
         return Array.prototype.join.call(arguments, '');
     };
 
@@ -1158,7 +1158,7 @@ var seed = seed || {};
      *
      * @return {string} A random string, e.g. sn1s7vb4gcic.
      */
-    goog.string.getRandomString = function() {
+    goog.string.getRandomString = function () {
         var x = 2147483648;
         return Math.floor(Math.random() * x).toString(36) +
             Math.abs(Math.floor(Math.random() * x) ^ goog.now()).toString(36);
@@ -1175,7 +1175,7 @@ var seed = seed || {};
      *                   0 if arguments are equal.
      *                  -1 if {@code version2} is higher.
      */
-    goog.string.compareVersions = function(version1, version2) {
+    goog.string.compareVersions = function (version1, version2) {
         var order = 0;
         // Trim leading and trailing whitespace and split the versions into
         // subversions.
@@ -1233,7 +1233,7 @@ var seed = seed || {};
      *                  -1 if {@code right} is higher.
      * @private
      */
-    goog.string.compareElements_ = function(left, right) {
+    goog.string.compareElements_ = function (left, right) {
         if (left < right) {
             return -1;
         } else if (left > right) {
@@ -1262,7 +1262,7 @@ var seed = seed || {};
      * @return {number} Hash value for {@code str}, between 0 (inclusive) and 2^32
      *  (exclusive). The empty string returns 0.
      */
-    goog.string.hashCode = function(str) {
+    goog.string.hashCode = function (str) {
         var result = 0;
         for (var i = 0; i < str.length; ++i) {
             result = 31 * result + str.charCodeAt(i);
@@ -1286,7 +1286,7 @@ var seed = seed || {};
      * This is useful, for example, to create unique IDs for DOM elements.
      * @return {string} A unique id.
      */
-    goog.string.createUniqueString = function() {
+    goog.string.createUniqueString = function () {
         return 'goog_' + goog.string.uniqueStringCounter_++;
     };
 
@@ -1302,7 +1302,7 @@ var seed = seed || {};
      * @param {string} str The string to convert.
      * @return {number} The number the supplied string represents, or NaN.
      */
-    goog.string.toNumber = function(str) {
+    goog.string.toNumber = function (str) {
         var num = Number(str);
         if (num === 0 && goog.string.isEmpty(str)) {
             return NaN;
@@ -1320,7 +1320,7 @@ var seed = seed || {};
      * @param {string} str String to test.
      * @return {boolean} Whether the string is lower camel case.
      */
-    goog.string.isLowerCamelCase = function(str) {
+    goog.string.isLowerCamelCase = function (str) {
         return (/^[a-z]+([A-Z][a-z]*)*$/).test(str);
     };
 
@@ -1334,7 +1334,7 @@ var seed = seed || {};
      * @param {string} str String to test.
      * @return {boolean} Whether the string is upper camel case.
      */
-    goog.string.isUpperCamelCase = function(str) {
+    goog.string.isUpperCamelCase = function (str) {
         return (/^([A-Z][a-z]*)+$/).test(str);
     };
 
@@ -1346,8 +1346,8 @@ var seed = seed || {};
      * @param {string} str The string in selector-case form.
      * @return {string} The string in camelCase form.
      */
-    goog.string.toCamelCase = function(str) {
-        return String(str).replace(/\-([a-z])/g, function(all, match) {
+    goog.string.toCamelCase = function (str) {
+        return String(str).replace(/\-([a-z])/g, function (all, match) {
             return match.toUpperCase();
         });
     };
@@ -1360,7 +1360,7 @@ var seed = seed || {};
      * @param {string} str The string in camelCase form.
      * @return {string} The string in selector-case form.
      */
-    goog.string.toSelectorCase = function(str) {
+    goog.string.toSelectorCase = function (str) {
         return String(str).replace(/([A-Z])/g, '-$1').toLowerCase();
     };
 
@@ -1396,7 +1396,7 @@ var seed = seed || {};
      *      overridden and must be explicitly included if needed.
      * @return {string} String value in TitleCase form.
      */
-    goog.string.toTitleCase = function(str, opt_delimiters) {
+    goog.string.toTitleCase = function (str, opt_delimiters) {
         var delimiters = goog.isString(opt_delimiters) ?
             goog.string.regExpEscape(opt_delimiters) : '\\s';
 
@@ -1405,7 +1405,7 @@ var seed = seed || {};
         delimiters = delimiters ? '|[' + delimiters + ']+' : '';
 
         var regexp = new RegExp('(^' + delimiters + ')([a-z])', 'g');
-        return str.replace(regexp, function(all, p1, p2) {
+        return str.replace(regexp, function (all, p1, p2) {
             return p1 + p2.toUpperCase();
         });
     };
@@ -1428,7 +1428,7 @@ var seed = seed || {};
      * @return {number} The number, parsed. If the string failed to parse, this
      *     will be NaN.
      */
-    goog.string.parseInt = function(value) {
+    goog.string.parseInt = function (value) {
         // Force finite numbers to strings.
         if (isFinite(value)) {
             value = String(value);
@@ -1463,7 +1463,7 @@ var seed = seed || {};
      * @return {!Array.<string>} The string, split.
      */
 
-    goog.string.splitLimit = function(str, separator, limit) {
+    goog.string.splitLimit = function (str, separator, limit) {
         var parts = str.split(separator);
         var returnVal = [];
 
@@ -1520,7 +1520,7 @@ var seed = seed || {};
      * @param {...string|number} var_args Values formatString is to be filled with.
      * @return {string} Formatted string.
      */
-    goog.string.format = function(formatString, var_args) {
+    goog.string.format = function (formatString, var_args) {
 
         // Convert the arguments to an array (MDC recommended way).
         var args = Array.prototype.slice.call(arguments);
@@ -1602,14 +1602,14 @@ var seed = seed || {};
      * @param {string} wholeString Has the actualString being searched.
      * @return {string} Replacement string.
      */
-    goog.string.format.demuxes_.s = function(value,
-                                             flags,
-                                             width,
-                                             dotp,
-                                             precision,
-                                             type,
-                                             offset,
-                                             wholeString) {
+    goog.string.format.demuxes_.s = function (value,
+                                              flags,
+                                              width,
+                                              dotp,
+                                              precision,
+                                              type,
+                                              offset,
+                                              wholeString) {
         var replacement = value;
         // If no padding is necessary we're done.
         // The check for '' is necessary because Firefox incorrectly provides the
@@ -1643,14 +1643,14 @@ var seed = seed || {};
      * @param {string} wholeString Has the actualString being searched.
      * @return {string} Replacement string.
      */
-    goog.string.format.demuxes_.f = function(value,
-                                             flags,
-                                             width,
-                                             dotp,
-                                             precision,
-                                             type,
-                                             offset,
-                                             wholeString) {
+    goog.string.format.demuxes_.f = function (value,
+                                              flags,
+                                              width,
+                                              dotp,
+                                              precision,
+                                              type,
+                                              offset,
+                                              wholeString) {
 
         var replacement = value.toString();
 
@@ -1716,14 +1716,14 @@ var seed = seed || {};
      * @param {string} wholeString Has the actualString being searched.
      * @return {string} Replacement string.
      */
-    goog.string.format.demuxes_.d = function(value,
-                                             flags,
-                                             width,
-                                             dotp,
-                                             precision,
-                                             type,
-                                             offset,
-                                             wholeString) {
+    goog.string.format.demuxes_.d = function (value,
+                                              flags,
+                                              width,
+                                              dotp,
+                                              precision,
+                                              type,
+                                              offset,
+                                              wholeString) {
         return goog.string.format.demuxes_.f(
             parseInt(value, 10) /* value */,
             flags, width, dotp, 0 /* precision */,

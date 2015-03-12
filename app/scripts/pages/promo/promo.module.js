@@ -3,7 +3,8 @@
 
     angular.module('seed.promo', [
         'ui.router',
-        'seed.viewport'
+        'seed.viewport',
+        'ngTouch'
     ]);
 
 })();
