@@ -1,11 +1,12 @@
 .seed-blade-container
+  background silver
   overflow overlay
   position fixed
   bottom 0
   top 0
-  widht 240px
-  transform translate(0px)
-  transition transform
+  width 240px
+  transform translate(-240px)
+  transition transform 0.3s ease-in
 
   &.seed-blade-expanded
-    transform translate(-240px)
+    transform translate(0)

@@ -1,21 +1,22 @@
 .seed-blade-container {
+  background: #c0c0c0;
   overflow: overlay;
   position: fixed;
   bottom: 0;
   top: 0;
-  widht: 240px;
-  -webkit-transform: translate(0px);
-  -moz-transform: translate(0px);
-  -o-transform: translate(0px);
-  transform: translate(0px);
-  -webkit-transition: transform;
-  -moz-transition: transform;
-  -o-transition: transform;
-  transition: transform;
-}
-.seed-blade-container.seed-blade-expanded {
+  width: 240px;
   -webkit-transform: translate(-240px);
   -moz-transform: translate(-240px);
   -o-transform: translate(-240px);
   transform: translate(-240px);
+  -webkit-transition: transform 0.3s ease-in;
+  -moz-transition: transform 0.3s ease-in;
+  -o-transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+}
+.seed-blade-container.seed-blade-expanded {
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -o-transform: translate(0);
+  transform: translate(0);
 }
