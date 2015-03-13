@@ -1,0 +1,21 @@
+.seed-blade-container {
+  overflow: overlay;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  widht: 240px;
+  -webkit-transform: translate(0px);
+  -moz-transform: translate(0px);
+  -o-transform: translate(0px);
+  transform: translate(0px);
+  -webkit-transition: transform;
+  -moz-transition: transform;
+  -o-transition: transform;
+  transition: transform;
+}
+.seed-blade-container.seed-blade-expanded {
+  -webkit-transform: translate(-240px);
+  -moz-transform: translate(-240px);
+  -o-transform: translate(-240px);
+  transform: translate(-240px);
+}

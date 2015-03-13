@@ -4,7 +4,9 @@
     angular.module('seed.promo', [
         'ui.router',
         'seed.viewport',
-        'ngTouch'
+        'ngTouch',
+
+        'seed.core.components.blade'
     ]);
 
 })();
